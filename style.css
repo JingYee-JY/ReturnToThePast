@@ -13,7 +13,7 @@
   }
   .wrapper {
     box-sizing: content-box;
-    width: 15.5em;
+    width: 17.5em;
     padding: 2.5em 2em;
     background-color:rgb(255, 255, 255, 0.6);
     position: absolute;
@@ -31,7 +31,7 @@
   }
   .card-container {
     position: relative;
-    width: 6.25em;
+    width: 8.25em;
     height: 6.25em;
     cursor: pointer;
   }
@@ -78,7 +78,7 @@
   }
   button {
     position: absolute;
-    bottom: 10vh;
+    bottom: 5vh;
     background-color: #ffffff;
     border: 5px solid black;
     border-radius: 1vh;
@@ -103,7 +103,6 @@
 .title{
     position: inherit;
     top: 5vh;
-    color: #ffffff;
     font-size: 2em;
     font-weight: 600;
 }
