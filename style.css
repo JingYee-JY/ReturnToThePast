@@ -13,8 +13,8 @@
   }
   .wrapper {
     box-sizing: content-box;
-    width: 18.5em;
-    padding: 2.5em 1em;
+    width: 14.5em;
+    padding: 2.5em 2em;
     background-color:rgb(255, 255, 255, 0.6);
     position: absolute;
     transform: translate(-50%, -50%);
@@ -27,7 +27,7 @@
     position: relative;
     width: 100%;
     display: grid;
-    gap: 0.7em;
+    gap: 1em;
   }
   .card-container {
     position: relative;
