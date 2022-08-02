@@ -78,7 +78,7 @@
   }
   button {
     position: absolute;
-    bottom: 5vh;
+    bottom: 10vh;
     background-color: #ffffff;
     border: 5px solid black;
     border-radius: 1vh;
@@ -125,7 +125,7 @@
     grid-template-columns: repeat(2,20vh);
     grid-template-rows:repeat(3,15vh);
     gap: 2vh;
-    top: -2vh;
+    top: -4vh;
     border-radius: 1vmin;
     padding: 0.5vh;
     position: relative;
