@@ -13,7 +13,7 @@
   }
   .wrapper {
     box-sizing: content-box;
-    width: 14.5em;
+    width: 15.5em;
     padding: 2.5em 2em;
     background-color:rgb(255, 255, 255, 0.6);
     position: absolute;
@@ -31,8 +31,8 @@
   }
   .card-container {
     position: relative;
-    width: 6.7em;
-    height: 5.1em;
+    width: 8.25em;
+    height: 6.25em;
     cursor: pointer;
   }
   .card-before,
@@ -70,7 +70,7 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-image: url("Background.png");
     background-size: cover;
     background-repeat: no-repeat;
