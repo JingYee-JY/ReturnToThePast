@@ -27,11 +27,11 @@
     position: relative;
     width: 100%;
     display: grid;
-    gap: 0.6em;
+    gap: 0.7em;
   }
   .card-container {
     position: relative;
-    width: 8.25em;
+    width: 7.25em;
     height: 6.25em;
     cursor: pointer;
   }
@@ -203,8 +203,8 @@
   }
 
   .resize{
-    height: 50vh;
-    width: 60vh;
+    height: 40vh;
+    width: 50vh;
   }
   .move{
     position: inherit;
