@@ -208,6 +208,7 @@
   }
   .move{
     position: inherit;
+    color: #b97507;
     text-align: center;
   }
   .result{
