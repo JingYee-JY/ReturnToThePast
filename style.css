@@ -27,7 +27,7 @@
     position: relative;
     width: 100%;
     display: grid;
-    gap: 0.5em;
+    gap: 1em;
   }
   .card-container {
     position: relative;
