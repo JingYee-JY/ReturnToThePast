@@ -14,7 +14,7 @@
   .wrapper {
     box-sizing: content-box;
     width: 18.5em;
-    padding: 2.5em 3em;
+    padding: 2.5em 1em;
     background-color:rgb(255, 255, 255, 0.6);
     position: absolute;
     transform: translate(-50%, -50%);
@@ -31,8 +31,8 @@
   }
   .card-container {
     position: relative;
-    width: 9.25em;
-    height: 7.25em;
+    width: 8.25em;
+    height: 6.25em;
     cursor: pointer;
   }
   .card-before,
@@ -78,7 +78,7 @@
   }
   button {
     position: absolute;
-    bottom: 10vh;
+    bottom: 5vh;
     background-color: #ffffff;
     border: 5px solid black;
     border-radius: 1vh;
@@ -94,7 +94,7 @@
   display: none;
 }
 .instruction{
-    position: inherit;
+    position: relative;
     text-align: center;
     width: 100%;
     font-size: 1.2em;
