@@ -27,11 +27,11 @@
     position: relative;
     width: 100%;
     display: grid;
-    gap: 1em;
+    gap: 3em;
   }
   .card-container {
     position: relative;
-    width: 8.25em;
+    width: 6.25em;
     height: 6.25em;
     cursor: pointer;
   }
@@ -103,6 +103,7 @@
 .title{
     position: inherit;
     top: 5vh;
+    color: #ffffff;
     font-size: 2em;
     font-weight: 600;
 }
