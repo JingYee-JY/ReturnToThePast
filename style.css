@@ -31,8 +31,8 @@
   }
   .card-container {
     position: relative;
-    width: 7.25em;
-    height: 6.25em;
+    width: 6.7em;
+    height: 5.1em;
     cursor: pointer;
   }
   .card-before,
@@ -208,7 +208,7 @@
   }
   .move{
     position: inherit;
-    color: #b97507;
+    color: #ffffff;
     text-align: center;
   }
   .result{
