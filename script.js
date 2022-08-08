@@ -81,7 +81,8 @@ const generateRandom = (size = 2) => {
               winCount += 1;
               //check if winCount ==half of cardValues
               if (winCount == Math.floor(cardValues.length / 2)) {
-                controls.classList.remove("hide")
+                let delay = setTimeout(() => {
+                  controls.classList.remove("hide")
                 preview.classList.add("hide")
                 again.classList.remove("hide")
                 result.innerHTML = `<h2 class="move">Great Job! You did it!</h2>
@@ -90,6 +91,7 @@ const generateRandom = (size = 2) => {
                 <img class="resize" src="GoodJobPicture.png">
                 <br>
                 <h2 class="move">You are awesome!</h2>`;
+                }, 900); 
               }
             } else {
               //if the cards dont match
