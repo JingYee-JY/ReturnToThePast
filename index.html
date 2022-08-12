@@ -9,26 +9,39 @@
 </head>
 <body>
   <div class="background">
+    <div class="final hide">
+      <div class="result">
+      </div>
+      <button class="again-button">
+        <img class="small" src="./img/againBtn.png">
+      </button>
+    </div>
     <div class="wrapper">
+      <div class="center">
+        <img class="smaller" src="./img/instruction.png">
+      </div>
+      <p class="gap"></p>
       <div class="game-container"></div>
-      <p class="instruction">Match the same picture.</p>
     </div>
   </div>
       <div class="controls-container">
-        <p class="title">Return to the Past</p>
+        <div>
+          <img class="title" src="./img/title.png">
+        </div>
         <div class="preview-container">
           <div class="preview">
-            <div class="card-1"></div>
             <div class="card-2"></div>
-            <div class="card-3"></div>
-            <div class="card-4"></div>
-            <div class="card-5"></div>
             <div class="card-6"></div>
+            <div class="card-3"></div>
+            <div class="card-1"></div>
           </div>
         </div>
-        <p id="result"></p>
-        <button id="start">Start Game</button>
-        <button class="again-button hide">Play Again</button>
+        <button id="howToPlay">
+          <img class="small" src="./img/howToPlayBtn.png">
+        </button>
+        <button id="start">
+          <img class="small" src="./img/startBtn.png">
+        </button>
       </div>
       <script src="script.js"></script>
 </body>

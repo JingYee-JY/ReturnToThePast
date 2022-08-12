@@ -1,9 +1,11 @@
 const startButton = document.getElementById("start");
 const gameContainer = document.querySelector(".game-container");
-const result = document.getElementById("result");
+const result = document.querySelector(".result");
+const wrapper = document.querySelector(".wrapper");
 const controls = document.querySelector(".controls-container");
 const preview = document.querySelector(".preview-container");
 const again = document.querySelector(".again-button");
+const final = document.querySelector(".final");
 let cards;
 let interval;
 let firstCard = false;
@@ -44,7 +46,7 @@ const generateRandom = (size = 2) => {
     for (let i = 0; i < size * 3; i++) {
       gameContainer.innerHTML += `
        <div class="card-container" data-card-value="${cardValues[i].name}">
-          <div class="card-before">?</div>
+          <div class="card-before">${i + 1}</div>
           <div class="card-after">
           <img src="${cardValues[i].image}" class="card-image"/></div>
        </div>
@@ -82,15 +84,15 @@ const generateRandom = (size = 2) => {
               //check if winCount ==half of cardValues
               if (winCount == Math.floor(cardValues.length / 2)) {
                 let delay = setTimeout(() => {
-                  controls.classList.remove("hide")
-                preview.classList.add("hide")
-                again.classList.remove("hide")
-                result.innerHTML = `<h2 class="move">Great Job! You did it!</h2>
-                <br>
-                <br>
-                <img class="resize" src="GoodJobPicture.png">
-                <br>
-                <h2 class="move">You are awesome!</h2>`;
+                  final.classList.remove("hide")
+                  wrapper.classList.add("hide")
+                result.innerHTML = `
+                <div>
+                <img class="Finaltitle" src="./img/finalTitle.png">
+                </div>
+                <div>
+                <img class="resize" src="./img/goodJob.png">
+                </div>`;
                 }, 900); 
               }
             } else {
@@ -114,20 +116,17 @@ const generateRandom = (size = 2) => {
 startButton.addEventListener("click", () => {
     //controls amd buttons visibility
     controls.classList.add("hide");
-    startButton.classList.add("hide");
-    again.classList.remove()
-    initializer("hide");
+    wrapper.classList.remove("hide")
+    initializer();
   });
 
   again.addEventListener("click", () => {
     //controls amd buttons visibility
-    controls.classList.add("hide");
-    again.classList.add("hide");
-    initializer("hide");
+    controls.classList.remove("hide");
+    final.classList.add("hide")
   });
   //Initialize values and func calls
 const initializer = () => {
-    result.innerText = "";
     winCount = 0;
     let cardValues = generateRandom();
     console.log(cardValues);
