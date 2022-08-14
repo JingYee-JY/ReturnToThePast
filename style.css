@@ -6,8 +6,6 @@
   }
   body {
     background-color: #F8E7D4;
-    background-repeat: no-repeat;
-    background-size: cover;
     width: 100%;
     height: 100%;
     display: flex;
@@ -125,7 +123,7 @@
 .card-image {
     position: absolute;
     border-radius: 5px;
-    width: 22vh;
+    width: 22.1vh;
     height: 19vh;
     display: flex;
     align-items: center;
@@ -148,7 +146,7 @@
     border-radius: 2vmin;
     width:27vh;
     height: 17vh;
-    background-image: url("NationalTheatre.png");
+    background-image: url("./img/NationalTheatre.png");
     background-repeat: no-repeat;
     background-color: #ffffff;
     background-size: cover;
@@ -158,7 +156,7 @@
     border-radius: 1vmin;
     width:27vh;
     height: 17vh;
-    background-image: url("BoatQuay.png");
+    background-image: url("./img/BoatQuay.png");
     background-repeat: no-repeat;
     background-color: #ffffff;
     background-size: cover;
@@ -168,7 +166,7 @@
     border-radius: 1vmin;
     width:27vh;
     height: 17vh;
-    background-image: url("SingaporeZoologicalGardens.png");
+    background-image: url("./img/SingaporeZoologicalGardens.png");
     background-repeat: no-repeat;
     background-color: #ffffff;
     background-size: cover;
@@ -178,7 +176,7 @@
     border-radius: 1vmin;
     width:27vh;
     height: 17vh;
-    background-image: url("DragonPlayground.png");
+    background-image: url("./img/DragonPlayground.png");
     background-repeat: no-repeat;
     background-color: #ffffff;
     background-size: cover;

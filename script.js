@@ -13,12 +13,12 @@ let secondCard = false;
 
 //Items array
 const items = [
-    { name: "DragonPlayground", image: "DragonPlayground.png" },
-    { name: "DovePlayground", image: "DovePlayground.png" },
-    { name: "SirStamfordRafflesStatue", image: "SirStamfordRafflesStatue.png" },
-    { name: "NationalTheatre", image: "NationalTheatre.png" },
-    { name: "BoatQuay", image: "BoatQuay.png" },
-    { name: "SingaporeZoologicalGardens", image: "SingaporeZoologicalGardens.png" },
+    { name: "DragonPlayground", image: "./img/DragonPlayground.png" },
+    { name: "DovePlayground", image: "./img/DovePlayground.png" },
+    { name: "SirStamfordRafflesStatue", image: "./img/SirStamfordRafflesStatue.png" },
+    { name: "NationalTheatre", image: "./img/NationalTheatre.png" },
+    { name: "BoatQuay", image: "./img/BoatQuay.png" },
+    { name: "SingaporeZoologicalGardens", image: "./img/SingaporeZoologicalGardens.png" },
   ];
 
   //Pick random objects from the items array
