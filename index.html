@@ -7,7 +7,33 @@
     <title>Return to the Past</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body ontouchstart = "touchstart(event)"
+ontouchmove ="touchmove(event)"
+ontouchend ="handleInput()">
+  <div class="instruction1 hide">
+    <img class="picture" src="./img/page1.png">
+    <button class="close">
+        <img class="smallbtn" src="./img/close.png">
+    </button>
+    <button class="pre">
+      <img class="prebtn" src="./img/pre.png">
+  </button>
+  <button class="next">
+    <img class="nextbtn" src="./img/next.png">
+</button>
+</div>
+<div class="instruction2 hide">
+  <img class="picture" src="./img/page2.png">
+  <button class="close">
+      <img class="smallbtn" src="./img/close.png">
+  </button>
+  <button class="pre">
+    <img class="prebtn" src="./img/pre.png">
+</button>
+<button class="next">
+  <img class="nextbtn" src="./img/next.png">
+</button>
+</div>
   <div class="background">
     <div class="final hide">
       <div class="result">

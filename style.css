@@ -71,6 +71,7 @@
   .controls-container,
   .background,
   .final {
+    z-index: 10;
     position: absolute;
     display: flex;
     align-items: center;
@@ -218,6 +219,46 @@
   .icon{
     width: 8vh;
   }
+  .instruction1,
+  .instruction2{
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    width: 90vmin;
+    height: 90vmin;
+    justify-content: center;
+    align-items: center;
+  }
+  .picture{
+    width: 90vmin;
+  }
+  .close{
+    position: absolute;
+    margin-bottom: -60vmin;
+    display: flex;
+  }
+  .smallbtn{
+    width: 20vmin;
+    height: 7vmin;
+  }
+  .pre,
+  .next{
+    position: absolute;
+    display: flex;
+  }
+  .pre{
+    margin-left: -75vmin;
+    margin-bottom: -5vmin;
+  }
+  .next{
+    margin-right: -75vmin;
+    margin-bottom: -5vmin;
+  }
+  .prebtn,
+  .nextbtn{
+    width: 6vmin;
+  }
+
   /*mobile*/
   @media screen and (max-width:767px) {
     body {  
