@@ -108,14 +108,6 @@
   display: none;
   visibility: hidden;
 }
-.instruction{
-    position: relative;
-    text-align: center;
-    width: 100%;
-    bottom: -6.5vh;
-    font-size:3.5vh;
-    font-weight: 600;
-}
 .title{
     position: inherit;
     top: 5vh;
@@ -210,14 +202,6 @@
     width: 20vh;
     text-align: center;
     
-  }
-  .top{
-    position: absolute;
-    top: 1vh;
-    right: 1vh;
-  }
-  .icon{
-    width: 8vh;
   }
   .instruction1,
   .instruction2{
