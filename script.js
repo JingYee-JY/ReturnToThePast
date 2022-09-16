@@ -9,6 +9,7 @@ const wrapper = document.querySelector(".wrapper");
 const controls = document.querySelector(".controls-container");
 const preview = document.querySelector(".preview-container");
 const again = document.querySelector(".again-button");
+const home = document.querySelector(".home-button");
 const final = document.querySelector(".final");
 let cards;
 let swipe
@@ -190,6 +191,13 @@ startButton.addEventListener("click", () => {
 
 
   again.addEventListener("click", () => {
+    //controls amd buttons visibility
+    wrapper.classList.remove("hide");
+    final.classList.add("hide")
+    initializer();
+  });
+
+  home.addEventListener("click", () => {
     //controls amd buttons visibility
     selection.classList.remove("hide");
     final.classList.add("hide")
