@@ -185,7 +185,7 @@ startButton.addEventListener("click", () => {
   hard.addEventListener("click", () => {
     selection.classList.add("hide")
     wrapper.classList.remove("hide")
-    size = 3
+    size = 4
     initializer();
   });
 
