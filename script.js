@@ -1,4 +1,8 @@
 const startButton = document.getElementById("start");
+const selection = document.querySelector(".selection");
+const easy = document.querySelector(".easy");
+const normal = document.querySelector(".normal");
+const hard = document.querySelector(".hard");
 const gameContainer = document.querySelector(".game-container");
 const result = document.querySelector(".result");
 const wrapper = document.querySelector(".wrapper");
@@ -8,6 +12,7 @@ const again = document.querySelector(".again-button");
 const final = document.querySelector(".final");
 let cards;
 let swipe
+let size
 let interval;
 let firstCard = false;
 let secondCard = false;
@@ -24,13 +29,13 @@ const items = [
   ];
 
   //Pick random objects from the items array
-const generateRandom = (size = 2) => {
+const generateRandom = (size) => {
     //temporary array
     let tempArray = [...items];
     //initializes cardValues array
     let cardValues = [];
     //size should be double (4*4 matrix)/2 since pairs of objects would exist
-    size = (size * 3) / 2;
+    size = (size * 2) / 2;
     //Random object selection
     for (let i = 0; i < size; i++) {
       const randomIndex = Math.floor(Math.random() * tempArray.length);
@@ -40,12 +45,12 @@ const generateRandom = (size = 2) => {
     }
     return cardValues;
   };
-  const matrixGenerator = (cardValues, size = 2) => {
+  const matrixGenerator = (cardValues, size) => {
     gameContainer.innerHTML = "";
     cardValues = [...cardValues, ...cardValues];
     //simple shuffle
     cardValues.sort(() => Math.random() - 0.5);
-    for (let i = 0; i < size * 3; i++) {
+    for (let i = 0; i < size * 2; i++) {
       gameContainer.innerHTML += `
        <div class="card-container" data-card-value="${cardValues[i].name}">
           <div class="card-before">${i + 1}</div>
@@ -54,15 +59,32 @@ const generateRandom = (size = 2) => {
        </div>
        `;
     }
-    //Grid
-    gameContainer.style.gridTemplateColumns = `repeat(${size},auto)`;
+    if(size == 2){
+      //Grid
+      gameContainer.style.gridTemplateColumns = `repeat(2,auto)`
+      gameContainer.style.gridTemplateRows = "";
+      wrapper.style.height = "50%";
+    }
+    if(size == 3){
+      //Grid
+      gameContainer.style.gridTemplateColumns = `repeat(2,auto)`
+      gameContainer.style.gridTemplateRows = `repeat(3,35%)`;
+      gameContainer.style.height = "85%";
+      wrapper.style.height = "70%";
+    }
+    if(size == 4){
+      //Grid
+      gameContainer.style.gridTemplateColumns = `repeat(2,auto)`;
+      wrapper.style.height = "95%";
+    }
+    
   
     //Cards
     cards = document.querySelectorAll(".card-container");
     cards.forEach((card) => {
       card.addEventListener("click", () => {
         //If selected card is not matched yet then only run (i.e already matched card when clicked would be ignored)
-        if (!card.classList.contains("matched")) {
+        if (!card.classList.contains("matched") && !card.classList.contains("flipped")) {
           //flip the cliked card
           card.classList.add("flipped");
           //if it is the firstcard (!firstCard since firstCard is initially false)
@@ -112,27 +134,70 @@ const generateRandom = (size = 2) => {
         }
       });
     });
+    opening()
   };
 
+  function opening(){
+    let Opendelay = setTimeout(() => {
+      cards.forEach((card) => {
+        card.classList.add("flipped"); 
+      })
+    }, 200);
+    let Closedelay = setTimeout(() => {
+      closing()
+    }, 2000);
+  }
+
+  function closing(){
+    cards.forEach((card) => {
+      card.classList.remove("flipped");
+    })
+    let delay = setTimeout(() => {
+      startGame = true
+      flipping = false
+      firstCard = null
+      secondCard = null
+    }, 500);
+  }
 
   //Start game
 startButton.addEventListener("click", () => {
     //controls amd buttons visibility
     controls.classList.add("hide");
+    selection.classList.remove("hide")
+  });
+
+  easy.addEventListener("click", () => {
+    selection.classList.add("hide")
     wrapper.classList.remove("hide")
+    size = 2
     initializer();
   });
 
+  normal.addEventListener("click", () => {
+    selection.classList.add("hide")
+    wrapper.classList.remove("hide")
+    size = 3
+    initializer();
+  });
+
+  hard.addEventListener("click", () => {
+    selection.classList.add("hide")
+    wrapper.classList.remove("hide")
+    size = 3
+    initializer();
+  });
+
+
   again.addEventListener("click", () => {
     //controls amd buttons visibility
-    controls.classList.remove("hide");
+    selection.classList.remove("hide");
     final.classList.add("hide")
   });
 
   //Initialize values and func calls
 const initializer = () => {
     winCount = 0;
-    let cardValues = generateRandom();
-    console.log(cardValues);
-    matrixGenerator(cardValues);
+    let cardValues = generateRandom(size);
+    matrixGenerator(cardValues,size);
   };
