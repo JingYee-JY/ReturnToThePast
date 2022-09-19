@@ -110,17 +110,14 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    margin-bottom: 5px;
   }
   .smaller{
-    width: 40vh;
-    height: 10vh;
+    width: 70%;
   }
   .small{
     width: 40vh;
     height: 10vh;
-  }
-  .gap{
-    height: 5vh;
   }
 .hide {
   display: none;
