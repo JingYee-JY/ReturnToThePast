@@ -271,6 +271,9 @@
       .wrapper{
         width: 70%;
       }
+      .smaller{
+        width: 70%;
+      }
     }
     /*laptop*/
     @media screen and (min-width:1200px){
