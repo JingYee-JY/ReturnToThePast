@@ -199,7 +199,7 @@ startButton.addEventListener("click", () => {
 
   home.addEventListener("click", () => {
     //controls amd buttons visibility
-    selection.classList.remove("hide");
+    controls.classList.remove("hide");
     final.classList.add("hide")
   });
 

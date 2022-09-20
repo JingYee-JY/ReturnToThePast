@@ -84,6 +84,10 @@
     background-color: #F8E7D4;
     top: 0;
   }
+  .matched{
+    transition: 2s;
+    opacity: 40%;
+  }
   .selection{
     width: 100%;
     display: flex;
