@@ -9,7 +9,6 @@ const wrapper = document.querySelector(".wrapper");
 const controls = document.querySelector(".controls-container");
 const preview = document.querySelector(".preview-container");
 const again = document.querySelector(".again-button");
-const home = document.querySelector(".home-button");
 const final = document.querySelector(".final");
 let cards;
 let swipe
@@ -113,7 +112,7 @@ const generateRandom = (size) => {
                   wrapper.classList.add("hide")
                 result.innerHTML = `
                 <div>
-                <img class="Finaltitle" src="./img/finalTitle.png">
+                <img class="Finaltitle endTitle" src="./img/finalTitle.png">
                 </div>
                 <div>
                 <img class="resize" src="./img/goodJob.png">
@@ -189,15 +188,7 @@ startButton.addEventListener("click", () => {
     initializer();
   });
 
-
   again.addEventListener("click", () => {
-    //controls amd buttons visibility
-    wrapper.classList.remove("hide");
-    final.classList.add("hide")
-    initializer();
-  });
-
-  home.addEventListener("click", () => {
     //controls amd buttons visibility
     controls.classList.remove("hide");
     final.classList.add("hide")
