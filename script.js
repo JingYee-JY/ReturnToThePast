@@ -10,6 +10,11 @@ const controls = document.querySelector(".controls-container");
 const preview = document.querySelector(".preview-container");
 const again = document.querySelector(".again-button");
 const final = document.querySelector(".final");
+const homeButton = document.querySelector(".home-button")
+
+const clickSound = document.getElementById("click")
+const clap = document.getElementById("clap")
+
 let cards;
 let swipe
 let size
@@ -59,6 +64,8 @@ const generateRandom = (size) => {
        </div>
        `;
     }
+    
+ 
     if(size == 2){
       //Grid
       gameContainer.style.gridTemplateColumns = `repeat(2,auto)`
@@ -74,7 +81,9 @@ const generateRandom = (size) => {
     }
     if(size == 4){
       //Grid
+      
       gameContainer.style.gridTemplateColumns = `repeat(2,auto)`;
+      gameContainer.style.gridTemplateRows = ""; // aden's fix - u never reset it!
       wrapper.style.height = "95%";
     }
     
@@ -85,6 +94,7 @@ const generateRandom = (size) => {
       card.addEventListener("click", () => {
         //If selected card is not matched yet then only run (i.e already matched card when clicked would be ignored)
         if (!card.classList.contains("matched") && !card.classList.contains("flipped")) {
+          playClickSound()
           //flip the cliked card
           card.classList.add("flipped");
           //if it is the firstcard (!firstCard since firstCard is initially false)
@@ -108,6 +118,8 @@ const generateRandom = (size) => {
               //check if winCount ==half of cardValues
               if (winCount == Math.floor(cardValues.length / 2)) {
                 let delay = setTimeout(() => {
+                  clap.currentTime = 0;
+                  clap.play()
                   final.classList.remove("hide")
                   wrapper.classList.add("hide")
                 result.innerHTML = `
@@ -162,41 +174,74 @@ const generateRandom = (size) => {
 
   //Start game
 startButton.addEventListener("click", () => {
+    playClickSound()
     //controls amd buttons visibility
-    controls.classList.add("hide");
-    selection.classList.remove("hide")
+    let delay = setTimeout(() => {
+      controls.classList.add("hide");
+      selection.classList.remove("hide")
+    }, 200);
+  
   });
 
   easy.addEventListener("click", () => {
-    selection.classList.add("hide")
-    wrapper.classList.remove("hide")
-    size = 2
-    initializer();
+    playClickSound()
+    let delay = setTimeout(() => {
+      selection.classList.add("hide")
+      wrapper.classList.remove("hide")
+      size = 2
+      initializer();
+    }, 200);
   });
 
   normal.addEventListener("click", () => {
-    selection.classList.add("hide")
-    wrapper.classList.remove("hide")
-    size = 3
-    initializer();
+    playClickSound()
+    let delay = setTimeout(() => {
+      selection.classList.add("hide")
+      wrapper.classList.remove("hide")
+      size = 3
+      initializer();
+    }, 200);
   });
 
   hard.addEventListener("click", () => {
-    selection.classList.add("hide")
-    wrapper.classList.remove("hide")
-    size = 4
-    initializer();
+    playClickSound()
+    let delay = setTimeout(() => {
+      selection.classList.add("hide")
+      wrapper.classList.remove("hide")
+      size = 4
+      initializer();
+    }, 200);
   });
 
   again.addEventListener("click", () => {
+    playClickSound()
     //controls amd buttons visibility
-    controls.classList.remove("hide");
-    final.classList.add("hide")
+    let delay = setTimeout(() => {
+      controls.classList.remove("hide");
+      final.classList.add("hide")
+    }, 200);
   });
 
+  homeButton.addEventListener("click", () => {
+    playClickSound()
+    let delay = setTimeout(() => {
+      location.assign('https://gimme.sg/activations/dementia/');
+    }, 200);
+  })
   //Initialize values and func calls
 const initializer = () => {
     winCount = 0;
     let cardValues = generateRandom(size);
     matrixGenerator(cardValues,size);
   };
+
+  function playClickSound(){
+    console.log(clickSound)
+    clickSound.currentTime = 0
+    clickSound.play()
+}
+
+/*prevent double tag zoom*/
+document.addEventListener('dblclick', function(event) {
+event.preventDefault();
+}, { passive: false });
