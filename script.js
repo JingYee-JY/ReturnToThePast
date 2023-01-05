@@ -16,6 +16,7 @@ const clickSound = document.getElementById("click")
 const clap = document.getElementById("clap")
 
 let cards;
+let flipping;
 let swipe
 let size
 let interval;
@@ -25,12 +26,10 @@ var startingX, startingY, movingX, movingY;
 
 //Items array
 const items = [
-    { name: "DragonPlayground", image: "./img/DragonPlayground.png" },
-    { name: "DovePlayground", image: "./img/DovePlayground.png" },
-    { name: "SirStamfordRafflesStatue", image: "./img/SirStamfordRafflesStatue.png" },
+    { name: "Merlion", image: "./img/Merlion.png" },
+    { name: "MRT", image: "./img/MRT.png" },
     { name: "NationalTheatre", image: "./img/NationalTheatre.png" },
-    { name: "BoatQuay", image: "./img/BoatQuay.png" },
-    { name: "SingaporeZoologicalGardens", image: "./img/SingaporeZoologicalGardens.png" },
+    { name: "Playground", image: "./img/Playground.png" }
   ];
 
   //Pick random objects from the items array
@@ -58,42 +57,20 @@ const generateRandom = (size) => {
     for (let i = 0; i < size * 2; i++) {
       gameContainer.innerHTML += `
        <div class="card-container" data-card-value="${cardValues[i].name}">
-          <div class="card-before">${i + 1}</div>
+          <div class="card-before">
+          <img src="./img/cardBackground.png" class="card-image"/></div>
           <div class="card-after">
           <img src="${cardValues[i].image}" class="card-image"/></div>
        </div>
        `;
-    }
-    
- 
-    if(size == 2){
-      //Grid
-      gameContainer.style.gridTemplateColumns = `repeat(2,auto)`
-      gameContainer.style.gridTemplateRows = "";
-      wrapper.style.height = "50%";
-    }
-    if(size == 3){
-      //Grid
-      gameContainer.style.gridTemplateColumns = `repeat(2,auto)`
-      gameContainer.style.gridTemplateRows = `repeat(3,35%)`;
-      gameContainer.style.height = "85%";
-      wrapper.style.height = "70%";
-    }
-    if(size == 4){
-      //Grid
-      
-      gameContainer.style.gridTemplateColumns = `repeat(2,auto)`;
-      gameContainer.style.gridTemplateRows = ""; // aden's fix - u never reset it!
-      wrapper.style.height = "95%";
-    }
-    
+    }    
   
     //Cards
     cards = document.querySelectorAll(".card-container");
     cards.forEach((card) => {
       card.addEventListener("click", () => {
         //If selected card is not matched yet then only run (i.e already matched card when clicked would be ignored)
-        if (!card.classList.contains("matched") && !card.classList.contains("flipped")) {
+        if (!card.classList.contains("matched") && !card.classList.contains("flipped") && !flipping) {
           playClickSound()
           //flip the cliked card
           card.classList.add("flipped");
@@ -122,13 +99,7 @@ const generateRandom = (size) => {
                   clap.play()
                   final.classList.remove("hide")
                   wrapper.classList.add("hide")
-                result.innerHTML = `
-                <div>
-                <img class="Finaltitle endTitle" src="./img/finalTitle.png">
-                </div>
-                <div>
-                <img class="resize" src="./img/goodJob.png">
-                </div>`;
+                result.src = "./img/goodJob.png"
                 }, 900); 
               }
             } else {
@@ -179,6 +150,7 @@ startButton.addEventListener("click", () => {
     let delay = setTimeout(() => {
       controls.classList.add("hide");
       selection.classList.remove("hide")
+      flipping = true;
     }, 200);
   
   });

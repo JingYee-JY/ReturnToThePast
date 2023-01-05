@@ -2,10 +2,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Londrina Solid', cursive;
   }
   body {
-    background-color: #F8E7D4;
+    background-color: #FFD392;
     width: 100%;
     height: 100%;
     display: flex;
@@ -38,7 +38,7 @@
   .wrapper {
     box-sizing: content-box;
     width: 85%;
-    height: 95%;
+    height: 100%;
     position: absolute;
     place-items: center;
     transform: translate(-50%, -50%);
@@ -47,10 +47,17 @@
     border-radius: 0.6em;
   }
   .game-container {
+    margin: auto;
+    margin-top: 10px;
     position: relative;
-    width: 100%;
-    height: 85%;
+    width: 95%;
+    aspect-ratio : 1 / 1;
+    --width:calc(90%/2 - 7px);
     display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(2, var(--width));
+    grid-template-rows: repeat(4, var(--width));
+    justify-content: center;
   }
   .card-container {
     position: relative;
@@ -63,24 +70,22 @@
   .card-before,
   .card-after {
     position: absolute;
-    border-radius: 5px;
-    width: 22vh;
-    height: 19vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     color: #F8E7D4;
     align-items: center;
     justify-content: center;
-    border: 4px solid #CA503C;
     transition: transform 0.7s ease-out;
     backface-visibility: hidden;
   }
   .card-before {
-    background-color: #E15554;
-    font-size: 5vh;
-    font-weight: 600;
+    background-image: url("./img/cardBackground.png");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .card-after {
-    background-color: #E15554;
     transform: rotateY(180deg);
   }
   .card-container.flipped .card-before {
@@ -91,41 +96,45 @@
   }
   .controls-container,
   .background,
-  .final {
+  .final,
+  .selection {
     z-index: 10;
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     place-items: center;
-    gap: 2vh;
+    gap: 25px;
     width: 100%;
     height: 100%;
-    background-color: #F8E7D4;
+    background-color: #FFD392;
     top: 0;
+  }
+  .controls-container,
+  .selection,
+  .background{
+    background-image: url("./img/Background.png");
+    background-position: bottom;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  .final{
+    background-color: #433836;
+    justify-content: center;
   }
   .matched{
     transition: 2s;
     opacity: 40%;
   }
-  .selection{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: auto;
-    gap: 200px;
-    text-align: center;
-    background-color: #F8E7D4;
-    min-height: 100vh;
-    z-index: 10;
-  }
   .choices{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 800;
   }
   button{
     background-color: rgba(255, 255, 255,0);
@@ -138,94 +147,49 @@
     margin-bottom: 5px;
   }
   .smaller{
-    width: 70%;
+    width: 86%;
+    height: auto;
   }
   .small{
-    width: 40vh;
-    height: 10vh;
+    width: 60%;
+    height: auto;
+  }
+  .buttons{
+    display: flex;
+    width: auto;
+    gap: 20px;
+    justify-content: center;
+  }
+  .buttons img{
+    width: 20%;
+    height: auto;
   }
 .hide {
   display: none;
   visibility: hidden;
 }
 .title{
-    position: inherit;
-    top: 5vh;
-    width: 20vh;
+    width: 70%;
 }
 .card-image {
     position: absolute;
     border-radius: 5px;
-    width: 22.1vh;
-    height: 19vh;
+    width: inherit;
+    height: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.7s ease-out;
     backface-visibility: hidden;
   }
-  .preview{
-    display: grid;
-    justify-content: center;
-    text-align: center;
-    grid-template-columns: repeat(2,27vh);
-    grid-template-rows:repeat(2,17vh);
-    gap: 1vh;
-    border-radius: 1vmin;
-    padding: 0.5vh;
-    position: relative;
-  }
-  .card-1{
-    border-radius: 2vmin;
-    width:27vh;
-    height: 17vh;
-    background-image: url("./img/NationalTheatre.png");
-    background-repeat: no-repeat;
-    background-color: #ffffff;
-    background-size: cover;
-    background-position: center;
-  }
-  .card-2{
-    border-radius: 1vmin;
-    width:27vh;
-    height: 17vh;
-    background-image: url("./img/BoatQuay.png");
-    background-repeat: no-repeat;
-    background-color: #ffffff;
-    background-size: cover;
-    background-position: center;
-  }
-  .card-3{
-    border-radius: 1vmin;
-    width:27vh;
-    height: 17vh;
-    background-image: url("./img/SingaporeZoologicalGardens.png");
-    background-repeat: no-repeat;
-    background-color: #ffffff;
-    background-size: cover;
-    background-position: center;
-  }
-  .card-6{
-    border-radius: 1vmin;
-    width:27vh;
-    height: 17vh;
-    background-image: url("./img/DragonPlayground.png");
-    background-repeat: no-repeat;
-    background-color: #ffffff;
-    background-size: cover;
-    background-position: center;
-  }
   h2{
     position: absolute;
     justify-content: center;
     align-items: center;
   }
-  .resize{
-    height: 45vh;
-    width: 35vh;
-  }
   .result{
-    text-align: center;
+    height: auto;
+    width: 80%;
   }
   .move{
     position: inherit;
@@ -233,6 +197,9 @@
     text-align: center;
   }
   .preview-container{
+    width: 100%;
+    padding: 20px 0px;
+    height: auto;
     position: relative;
     justify-content: center;
     align-items: center;
@@ -293,26 +260,39 @@
 
     /*ipad*/
     @media screen and (min-width:768px) and (max-width:1023px) {
-      .wrapper{
-        width: 70%;
-      }
-      .smaller{
-        width: 70%;
-        margin-bottom: 20px;
-      }
+    .title {
+        width: 55%;
+    }
+    .small {
+      width: 55%;
+      height: auto;
+    }
+    .choices {
+      font-size: 50px;
+    }
+    .game-container {
+      width: 75%;
+      margin-top: 20px;
+      gap: 20px;
+    }
+    .smaller {
+      width: 70%;
+      height: auto;
+    }
+    .result {
+      padding-bottom: 20px;
+    }
+    .buttons img {
+      width: 25%;
+    }
     }
     /*laptop*/
     @media screen and (min-width:1200px){
-      .wrapper{
-        width:30%;
-        margin: 0 auto;
-    }
-    .card-before, .card-after{
-      width: 90%;
-    }
-    .card-image{
-      width: 90%;
-      object-fit: cover;
+      .controls-container,
+    .background,
+    .final,
+    .selection{
+      width: 300px;
     }
     }      
 
