@@ -1,16 +1,21 @@
-const startButton = document.getElementById("start");
-const selection = document.querySelector(".selection");
+const startButton = document.querySelector(".start");
 const easy = document.querySelector(".easy");
 const normal = document.querySelector(".normal");
 const hard = document.querySelector(".hard");
-const gameContainer = document.querySelector(".game-container");
+const BeganGame = document.querySelector(".startGame");
+const again = document.querySelector(".again");
+const homeButton = document.querySelector(".home")
+
+const startPage = document.querySelector(".startPage");
+const selectionPage = document.querySelector(".selectionPage");
+const instructionPage = document.querySelector(".instructionPage");
+const gamePage = document.querySelector(".gamePage");
+const finalPage = document.querySelector(".finalPage");
+
+
+const gameContainer = document.querySelector(".gameContainer");
 const result = document.querySelector(".result");
-const wrapper = document.querySelector(".wrapper");
-const controls = document.querySelector(".controls-container");
-const preview = document.querySelector(".preview-container");
-const again = document.querySelector(".again-button");
-const final = document.querySelector(".final");
-const homeButton = document.querySelector(".home-button")
+
 
 const clickSound = document.getElementById("click")
 const clap = document.getElementById("clap")
@@ -47,9 +52,11 @@ const generateRandom = (size) => {
       //once selected remove the object from temp array
       tempArray.splice(randomIndex, 1);
     }
+    console.log(cardValues)
     return cardValues;
   };
   const matrixGenerator = (cardValues, size) => {
+    console.log(gameContainer)
     gameContainer.innerHTML = "";
     cardValues = [...cardValues, ...cardValues];
     //simple shuffle
@@ -97,8 +104,8 @@ const generateRandom = (size) => {
                 let delay = setTimeout(() => {
                   clap.currentTime = 0;
                   clap.play()
-                  final.classList.remove("hide")
-                  wrapper.classList.add("hide")
+                  finalPage.classList.remove("hide")
+                  gamePage.classList.add("hide")
                 result.src = "./img/goodJob.png"
                 }, 900); 
               }
@@ -136,7 +143,6 @@ const generateRandom = (size) => {
       card.classList.remove("flipped");
     })
     let delay = setTimeout(() => {
-      startGame = true
       flipping = false
       firstCard = null
       secondCard = null
@@ -148,9 +154,18 @@ startButton.addEventListener("click", () => {
     playClickSound()
     //controls amd buttons visibility
     let delay = setTimeout(() => {
-      controls.classList.add("hide");
-      selection.classList.remove("hide")
+      startPage.classList.add("hide");
+      selectionPage.classList.remove("hide")
       flipping = true;
+    }, 200);
+  
+  });
+  BeganGame.addEventListener("click", () => {
+    playClickSound()
+    //controls amd buttons visibility
+    let delay = setTimeout(() => {
+      instructionPage.classList.add("hide");
+      initializer();
     }, 200);
   
   });
@@ -158,30 +173,24 @@ startButton.addEventListener("click", () => {
   easy.addEventListener("click", () => {
     playClickSound()
     let delay = setTimeout(() => {
-      selection.classList.add("hide")
-      wrapper.classList.remove("hide")
       size = 2
-      initializer();
+      began();
     }, 200);
   });
 
   normal.addEventListener("click", () => {
     playClickSound()
     let delay = setTimeout(() => {
-      selection.classList.add("hide")
-      wrapper.classList.remove("hide")
       size = 3
-      initializer();
+      began();
     }, 200);
   });
 
   hard.addEventListener("click", () => {
     playClickSound()
     let delay = setTimeout(() => {
-      selection.classList.add("hide")
-      wrapper.classList.remove("hide")
       size = 4
-      initializer();
+      began()
     }, 200);
   });
 
@@ -189,8 +198,8 @@ startButton.addEventListener("click", () => {
     playClickSound()
     //controls amd buttons visibility
     let delay = setTimeout(() => {
-      controls.classList.remove("hide");
-      final.classList.add("hide")
+      startPage.classList.remove("hide");
+      finalPage.classList.add("hide")
     }, 200);
   });
 
@@ -207,7 +216,14 @@ const initializer = () => {
     matrixGenerator(cardValues,size);
   };
 
-  function playClickSound(){
+function began(){
+  console.log("test")
+  selectionPage.classList.add("hide")
+  gamePage.classList.remove("hide")
+  instructionPage.classList.remove("hide");
+}
+
+function playClickSound(){
     console.log(clickSound)
     clickSound.currentTime = 0
     clickSound.play()

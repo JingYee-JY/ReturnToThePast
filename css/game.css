@@ -1,0 +1,83 @@
+.gamePage{
+    gap: 5px;
+}
+
+.gameDetails{
+    width: 72%;
+    height: auto;
+}
+
+.gameContainer {
+    margin: auto;
+    margin-top: 5px;
+    position: relative;
+    width: 80%;
+    aspect-ratio : 1 / 1;
+    --width:calc(90%/2 - 7px);
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(2, var(--width));
+    grid-template-rows: repeat(4, var(--width));
+    justify-content: center;
+}
+
+.card-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-before,
+.card-after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: #F8E7D4;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.7s ease-out;
+    backface-visibility: hidden;
+}
+
+.card-after {
+    transform: rotateY(180deg);
+}
+.card-container.flipped .card-before {
+    transform: rotateY(180deg);
+}
+.card-container.flipped .card-after {
+    transform: rotateY(0deg);
+}
+
+.card-image {
+    position: absolute;
+    border-radius: 5px;
+    width: inherit;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.7s ease-out;
+    backface-visibility: hidden;
+}
+
+.matched{
+    transition: 2s;
+    opacity: 40%;
+}
+
+/*ipad*/
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .gameDetails{
+        width: 59%;
+    }
+    .gameContainer {
+        width: 64%;
+        margin-top: 20px;
+        gap: 20px;
+    }
+}

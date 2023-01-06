@@ -5,50 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <title>Return to the Past</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/game.css"/>
+    <link rel="stylesheet" 
+    href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400;900&display=swap">
 </head>
 <body>
-  <div class="background">
-    <div class="final hide">
-      <img class="result">
-      <div class="buttons">
-        <img class="again-button" src="./img/againBtn.png">
-        <img class="home-button" src="./img/home.png">
-      </div>
-    </div>
-    <div class="wrapper">
-      <div class="center">
-        <img class="smaller" src="./img/instruction.png">
-      </div>
-      <p class="gap"></p>
-      <div class="game-container"></div>
+
+  <div class="startPage">
+    <img class="title" src="./img/title.png">
+    <img class="preview" src="./img/preview.png">
+    <img class="start button" src="./img/startBtn.png">
+  </div>
+      
+  <div class="selectionPage hide">   
+    <img class="title" src="./img/title.png">
+    <div class="choices">
+      <p>Choose one</p>
+      <img class="easy button" src="./img/easy.png">
+      <img class="normal button" src="./img/normal.png">
+      <img class="hard button" src="./img/hard.png">
     </div>
   </div>
-      <div class="controls-container">
-        <img class="title" src="./img/title.png">
-        <img class="preview-container" src="./img/preview.png">
-        <button id="start">
-          <img class="small" src="./img/startBtn.png">
-        </button>
-      </div>
-      <div class="selection hide">
-        <img class="title" src="./img/title.png">
-        <div class="choices">
-          <p>Choose one</p>
-          <button class="easy">
-            <img class="small" src="./img/easy.png">
-          </button>
-          <button class="normal">
-            <img class="small" src="./img/normal.png">
-          </button>
-          <button class="hard">
-            <img class="small" src="./img/hard.png">
-          </button>
-        </div>
-      </div>
-      <audio id="click" src="sounds/click.wav"></audio>
-      <audio id="clap" src="./sounds/clap.wav"></audio>
 
-      <script src="script.js"></script>
+  <div class="instructionPage hide">
+    <img class="title" src="./img/title.png">
+    <p>How to play</p>
+    <div class="details">
+      <p>
+        Tap the card to <br>
+        match the same <br>
+        picture. Card will <br>
+        be faded out after <br>
+        success match
+      </p>
+    </div>
+    <img class="startGame button" src="./img/startGame.png">
+  </div>
+
+  <div class="gamePage hide">
+    <img class="gameDetails" src="./img/instruction.png">
+    <div class="gameContainer">
+    </div>
+  </div>
+
+  <div class="finalPage hide">
+    <img class="result">
+    <div class="buttons">
+      <img class="again roundedButton" src="./img/againBtn.png">
+      <img class="home roundedButton" src="./img/home.png">
+    </div>
+  </div>
+
+  <audio id="click" src="sounds/click.wav"></audio>
+  <audio id="clap" src="./sounds/clap.wav"></audio>
+
+  <script src="script.js"></script>
 </body>
 </html>
