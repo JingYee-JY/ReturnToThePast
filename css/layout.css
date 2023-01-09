@@ -43,16 +43,6 @@ body {
   top: 0;
 }
 
-.startPage,
-.selectionPage,
-.gamePage,
-.instructionPage{
-  background-image: url("../img/Background.png");
-  background-position: bottom;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-
 .finalPage{
   background-color: var(--secondary);
   justify-content: center;

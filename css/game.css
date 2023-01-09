@@ -21,6 +21,13 @@
     justify-content: center;
 }
 
+@supports not (aspect-ratio : 1 / 1){
+    ::before{
+        width: 218px;
+        height: 218px;
+    }
+}
+
 .card-container {
     position: relative;
     width: 100%;
