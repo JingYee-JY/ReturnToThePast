@@ -192,8 +192,15 @@ body {
     .startPage,
     .selectionPage,
     .gamePage,
+    .popUp,
     .instructionPage,
-    .finalPage{
-        width: 290px;
+    .finalPage,
+    .rotate{
+        width: 290px !important;
+    }
+    
+    /*Rotate*/
+    .rotate{
+        z-index: -10;
     }
 }   
